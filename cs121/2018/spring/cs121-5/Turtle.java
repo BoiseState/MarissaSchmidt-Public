@@ -10,11 +10,8 @@ public class Turtle
 		String name = "Jaremy";
 		
 		Color turtleGreen = new Color(0, 153, 51);
+		Color grassGreen = new Color(0, 153, 51);
 		
-		System.out.println("Meet " + name + ". He is " + turtleGreen + ".");
-		
-		int blueValue = turtleGreen.getBlue();
-		
-		System.out.println(blueValue);
+		System.out.println(turtleGreen.equals(grassGreen));
 	}
 }

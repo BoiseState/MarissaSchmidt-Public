@@ -17,9 +17,8 @@ public class LoginHandler
 		System.out.print("Username: ");
 		String username = kbd.nextLine();
 		
-		
 		int length = username.length();
-		if(length <= 50 && length > 8) // validate username is less than 50 chars and more than 8
+		if(length <= 50 && length > 0) // validate username is less than 50 chars and more than 8
 		{
 			if(username.equals("snoopy"))
 			{
