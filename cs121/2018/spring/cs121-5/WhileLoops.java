@@ -1,6 +1,6 @@
 /**
  * Demonstrates various while loops.
- * @author cs121-2, marissa
+ * @author cs121-5, marissa
  * @version Spring 2018
  */
 public class WhileLoops
