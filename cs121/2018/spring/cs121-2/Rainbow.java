@@ -99,9 +99,9 @@ public class Rainbow extends JPanel
 	 */
 	public static void main(String[] args)
 	{
-		JFrame frame = new JFrame("BlankCanvas");
+		JFrame frame = new JFrame("Rainbow");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(new BlankCanvas());
+		frame.getContentPane().add(new Rainbow());
 		frame.pack();
 		frame.setVisible(true);
 	}
