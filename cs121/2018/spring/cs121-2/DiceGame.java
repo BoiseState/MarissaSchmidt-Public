@@ -9,20 +9,32 @@ public class DiceGame
 	{
 		// Use my die object in this driver class
 		
-		Die die = new Die();
+		Die die1 = new Die();
+		Die die2 = new Die();
 		
-		int faceValue = die.getFaceValue();
-		System.out.println("Face value: " + faceValue);
+		die1.roll();
+		die2.roll();
 		
-		die.setFaceValue(-2);
+		System.out.println(die1);
+		System.out.println(die2);
 		
-		System.out.println("My die is: " + die);
+		Die maxDie = Die.maxOfTwoDice(die1, die2);
 		
-		die.roll();
-		System.out.println("After roll: " + die);
+		System.out.println("The larger die is: " + maxDie);
 		
-		Die fourSidedDie = new Die(4);
 		
-		System.out.println("My other die is: " + fourSidedDie);
+//		int faceValue = die.getFaceValue();
+//		System.out.println("Face value: " + faceValue);
+//		
+//		die.setFaceValue(-2);
+//		
+//		System.out.println("My die is: " + die);
+//		
+//		die.roll();
+//		System.out.println("After roll: " + die);
+//		
+//		Die fourSidedDie = new Die(4);
+		
+//		System.out.println("My other die is: " + fourSidedDie);
 	}
 }

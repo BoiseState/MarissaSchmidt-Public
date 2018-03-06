@@ -83,6 +83,24 @@ public class Die
 	}
 	
 	/**
+	 * Returns the die with the largest face value.
+	 * @param die1 The first die.
+	 * @param die2 The second die.
+	 * @return A reference to the die with the larger face value.
+	 */
+	public static Die maxOfTwoDice(Die die1, Die die2)
+	{
+		if(die1.getFaceValue() > die2.getFaceValue())
+		{
+			return die1;
+		}
+		else
+		{
+			return die2;
+		}
+	}
+	
+	/**
 	 * Prints the current state of the die.
 	 */
 	public String toString()
