@@ -26,7 +26,10 @@ public class Arrays
 		
 		System.out.println();
 		
-		// TODO: swap elements 1 and 2
+		// TODO: swap elements 2 and 3
+		char temp = alphabet[2];
+		alphabet[2] = alphabet[3];
+		alphabet[3] = temp;
 		
 		// Print all letters using for-each loop
 		for(char c : alphabet)
