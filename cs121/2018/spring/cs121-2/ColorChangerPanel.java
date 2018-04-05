@@ -1,9 +1,9 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -16,44 +16,37 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class ColorChangerPanel extends JPanel
 {
-	private ColorButton[][] colorButtons;
+	private ColorGridPanel gridPanel;
+	private JPanel displayPanel;
 	
 	public ColorChangerPanel(int dimension)
 	{
-		// change layout of this panel to grid layout
-		setLayout(new GridLayout(dimension, dimension));
+		setLayout(new BorderLayout());
 		
-		// create one listener instance that will be shared among all buttons
-		ColorButtonListener listener = new ColorButtonListener();
+		// This panel represents the 2D grid of colors
+		gridPanel = new ColorGridPanel(dimension, new ColorButtonListener());
+		gridPanel.setBackground(Color.YELLOW);
 		
-		// instantiate 2D array of buttons
-		colorButtons = new ColorButton[dimension][dimension];
+		// This is the display panel that the color will be displayed on
+		displayPanel = new JPanel();
+		displayPanel.setBackground(Color.WHITE);
+		displayPanel.setPreferredSize(new Dimension(100, 100));
 		
-		for(int i = 0; i < colorButtons.length; i++) // rows
-		{
-			for(int j = 0; j < colorButtons[i].length; j++) // cols
-			{
-				// instantiate buttons
-				colorButtons[i][j] = new ColorButton();
-				// Mac Fix
-				colorButtons[i][j].setOpaque(true);
-				colorButtons[i][j].setBorderPainted(false);
-				// add buttons
-				add(colorButtons[i][j]);
-				// add listeners
-				colorButtons[i][j].addActionListener(listener);
-			}
-		}
+		add(gridPanel, BorderLayout.CENTER);
+		add(displayPanel, BorderLayout.EAST);
 	}
 	
+	/**
+	 *  Changes the background color of the display panel to the button that was clicked.
+	 */
 	private class ColorButtonListener implements ActionListener
 	{
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			// Get the button that was clicked and change background color
-			JButton clicked = (JButton) e.getSource();
-			clicked.setBackground(Color.BLACK);
+			// Get the button that was clicked and change background color of display panel
+			ColorButton clicked = (ColorButton) e.getSource();
+			displayPanel.setBackground(clicked.getColor());
 		}
 	}
 }

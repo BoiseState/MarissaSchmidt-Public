@@ -5,6 +5,7 @@ import javax.swing.JButton;
 /**
  * This represents a custom ColorButton. We are extending JButton so we can inherit
  * all the methods and attributes from a JButton.
+ * 
  * @author marissa
  * @author cs121-2
  * @version Spring 2018
@@ -15,9 +16,24 @@ public class ColorButton extends JButton
 	private int clickCount;
 	private Color color;
 	
-	public ColorButton()
+	public ColorButton(Color color)
 	{
+		setOpaque(true);
+		setBorderPainted(false);
 		clickCount = 0;
-		color = Color.WHITE;
+		this.color = color;
+		
+		setBackground(color);
+	}
+	
+	public void setColor(Color color)
+	{
+		this.color = color;
+		setBackground(color);
+	}
+	
+	public Color getColor()
+	{
+		return color;
 	}
 }
