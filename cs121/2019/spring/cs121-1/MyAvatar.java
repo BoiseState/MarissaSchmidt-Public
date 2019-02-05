@@ -2,6 +2,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Color;
@@ -87,7 +89,7 @@ public class MyAvatar extends JPanel
 		// draw trunk
 		Color treeTrunk = new Color(87, 35, 7);
 		g.setColor(treeTrunk);
-		g.fillRect(150, grassYOffset - 200, 100, 200);
+		g.fillRect(150, grassYOffset - 200, 100, (int)(200*scaleFactor));
 		
 		// draw leaves
 		g.setColor(grassGreen);
@@ -120,6 +122,18 @@ public class MyAvatar extends JPanel
 		int faceHeight = bob.getFaceHeight();
 		g.setColor(Color.MAGENTA);
 		g.fillArc(cap.x - faceWidth/2, cap.y - faceHeight/4, faceWidth, faceHeight, 45, 90);
+		
+		String hello = "Hello!";
+		
+		g.setFont(new Font("Serif", Font.ITALIC, currentHeight/20));
+		
+		// Get Font's metrics to allows us to figure out it's size
+		FontMetrics metrics = g.getFontMetrics();
+		
+		int stringX = cap.x - (metrics.stringWidth(hello) / 2);
+		//int stringY = (height + metrics.getHeight()) / 2;
+		
+		g.drawString(hello, stringX, cap.y - faceHeight/2);
 	}
 
 
