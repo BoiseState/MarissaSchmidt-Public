@@ -3,11 +3,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CerealAnalyzer {
-
+public class CerealAnalyzer
+{
 	public static void main(String[] args)
 	{
-		
 		File file = new File("cereal.csv");
 		
 		if(file.exists())
@@ -37,6 +36,8 @@ public class CerealAnalyzer {
 					
 					// add cereal to arraylist
 					cerealList.add(cereal);
+					
+					lineScan.close();
 				}
 				
 				
@@ -58,6 +59,8 @@ public class CerealAnalyzer {
 				double averageCalories = runningSum / cerealList.size();
 				System.out.println(averageCalories);
 				System.out.println("You ate " + totalCarbs + " carbs.");
+				
+				fileScan.close();
 				
 			} catch (FileNotFoundException e) {
 				// if we get here, something went wrong.
