@@ -3,7 +3,7 @@
  * @author marissa
  *
  */
-public class Box
+public class Box implements Comparable<Box>
 {
 	// Attributes (instance variables)
 	private double length;
@@ -12,8 +12,6 @@ public class Box
 	private boolean full;
 	
 	// Constructor (how do I create an object)
-	
-	
 	/**
 	 * This creates a new, empty box.
 	 * @param length the length in cm
@@ -53,6 +51,24 @@ public class Box
 	}
 	
 	/**
+	 * Returns the length of this box.
+	 * @return the length in cm.
+	 */
+	public double getLength()
+	{
+		return length;
+	}
+	
+	/**
+	 * Sets the length of the box.
+	 * @param length the length in cm
+	 */
+	public void setLength(double length)
+	{
+		this.length = length;
+	}
+	
+	/**
 	 * Returns the height of this box.
 	 * @return the height in cm.
 	 */
@@ -60,6 +76,25 @@ public class Box
 	{
 		return height;
 	}
+	
+	/**
+	 * Sets the width of the box.
+	 * @param width the width in cm
+	 */
+	public void setWidth(double width)
+	{
+		this.width = width;
+	}
+	
+	/**
+	 * Returns the width of this box.
+	 * @return the width in cm.
+	 */
+	public double getWidth()
+	{
+		return width;
+	}
+	
 	
 	/**
 	 * Sets whether or not the box is full.
@@ -79,6 +114,51 @@ public class Box
 		return full;
 	}
 	
+	/**
+	 * Returns the volume of this box
+	 * @return the volume
+	 */
+	public double getVolume()
+	{
+		return length * width * height;
+	}
+	
+
+	// equals
+	public boolean equals(Box b)
+	{
+		if(this.getVolume() == b.getVolume())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	
+	
+	@Override
+	public int compareTo(Box that)
+	{
+		int result = 0;
+		if(this.getVolume() == that.getVolume())
+		{
+			result = 0; // they are equal
+		}
+		else if(this.getVolume() < that.getVolume())
+		{
+			result = -1;
+		}
+		else
+		{
+			result = 1;
+		}
+		return result;
+	}
+	
+	
 	
 	// Methods
 	
@@ -95,6 +175,7 @@ public class Box
 		}
 		
 		return output;
-	
 	}
+	
+	
 }
