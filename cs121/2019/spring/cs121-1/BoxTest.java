@@ -14,6 +14,22 @@ public class BoxTest {
 		double boxHeight = myBox.getHeight();
 		myBox.setHeight(56.6);
 		
+		
+		if(myBox.equals(myOtherBox))
+		{
+			System.out.println("My boxes are the same");
+		}
+		
+		
+		if(myBox.compareTo(myOtherBox) == 0)
+		{
+			System.out.println("They are equal");
+		}
+		
+		
+		double volume = myBox.getVolume();
+		double surfaceArea = myBox.getSurfaceArea();
+		
 	}
 
 }
