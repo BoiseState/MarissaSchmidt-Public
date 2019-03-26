@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Tests our Box class.
  * @author marissa
@@ -29,6 +31,20 @@ public class BoxTest {
 		
 		double volume = myBox.getVolume();
 		double surfaceArea = myBox.getSurfaceArea();
+		
+		// Create a truck and load the boxes
+		DeliveryTruck truck = new DeliveryTruck(4000);
+		truck.addBox(myBox);
+		truck.addBox(myOtherBox);
+		
+		System.out.println(truck);
+		
+		ArrayList<Box> allTheBoxes = truck.getBoxList();
+		allTheBoxes.clear();
+		System.out.println(truck);
+		
+		Box biggest = truck.getLargestBox();
+		System.out.println(biggest);
 		
 	}
 
