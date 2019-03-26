@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class BoxTest {
 
@@ -15,26 +16,45 @@ public class BoxTest {
 			// do something
 		}
 		
+		DeliveryTruck truck = new DeliveryTruck("Chuck");
+		System.out.println(truck);
 		
-		System.out.println(box1.getVolume());
+		truck.addBox(box1);
+		truck.addBox(box2);
 		
-		if(box1.compareTo(box2) == 0)
-		{
-			System.out.println("They are equal");
-		}
-		else if (box1.compareTo(box2) < 0)
-		{
-			System.out.println("Box 1 is smaller");
-		}
-		else
-		{
-			System.out.println("Box 2 is smaller");
-		}
+		System.out.println(truck);
+		System.out.println();
 		
-		if(box1.equals(box2))
-		{
-			System.out.println("equal");
-		}
+		Box largest = truck.getLargestBox();
+		System.out.println("Largest box is " + largest);
+		
+		ArrayList<Box> allTheBoxes = truck.getBoxList();
+		allTheBoxes.clear();
+		
+		System.out.println(truck);
+		
+//		System.out.println(box1.getVolume());
+//		
+//		if(box1.compareTo(box2) == 0)
+//		{
+//			System.out.println("They are equal");
+//		}
+//		else if (box1.compareTo(box2) < 0)
+//		{
+//			System.out.println("Box 1 is smaller");
+//		}
+//		else
+//		{
+//			System.out.println("Box 2 is smaller");
+//		}
+//		
+//		if(box1.equals(box2))
+//		{
+//			System.out.println("equal");
+//		}
+		
+		
+		
 		
 	}
 
