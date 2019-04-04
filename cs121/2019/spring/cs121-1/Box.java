@@ -1,16 +1,26 @@
 /**
- * This represents a box.
+ * This represents a box. Every box has a width, height, depth, material,
+ * and whether or not it is full.
+ * 
  * @author marissa
  */
 public class Box implements Comparable<Box>
 {
-	// Attributes
+	public enum BoxMaterial { 
+		CARDBOARD, 
+		PLASTIC, 
+		STEEL, 
+		RUBBER, 
+		WOOD, 
+		UNDEFINED 
+	}
+	
 	private double height;
 	private double width;
 	private double depth;
 	private boolean full;
+	private BoxMaterial material;
 	
-	// Constructor
 	/**
 	 * Creates a new, empty box.
 	 * @param height of the box in cm
@@ -23,6 +33,7 @@ public class Box implements Comparable<Box>
 		this.width = width;
 		this.depth = depth;
 		this.full = false;
+		this.material = BoxMaterial.UNDEFINED;
 	}
 	
 	/**
@@ -38,6 +49,25 @@ public class Box implements Comparable<Box>
 		this.width = width;
 		this.depth = depth;
 		this.full = full;
+		this.material = BoxMaterial.UNDEFINED;
+	}
+	
+	/**
+	 * Sets the material of this box.
+	 * @param material The material.
+	 */
+	public void setMaterial(BoxMaterial material)
+	{
+		this.material = material;
+	}
+	
+	/**
+	 * Returns the material of this box.
+	 * @return The material.
+	 */
+	public BoxMaterial getMaterial()
+	{
+		return this.material;
 	}
 	
 	/**
@@ -47,16 +77,6 @@ public class Box implements Comparable<Box>
 	public double getHeight()
 	{
 		return height;
-	}
-	
-	public double getWidth()
-	{
-		return width;
-	}
-	
-	public double getDepth()
-	{
-		return depth;
 	}
 	
 	/**
@@ -69,6 +89,42 @@ public class Box implements Comparable<Box>
 	}
 	
 	/**
+	 * Returns the width of the box
+	 * @return the width
+	 */
+	public double getWidth()
+	{
+		return width;
+	}
+	
+	/**
+	 * Sets the width of the box
+	 * @param width the new width
+	 */
+	public void setWidth(double width)
+	{
+		this.width = width;
+	}
+	
+	/**
+	 * Returns the depth of the box
+	 * @return the depth
+	 */
+	public double getDepth()
+	{
+		return depth;
+	}
+	
+	/**
+	 * Sets the depth of the box
+	 * @param depth the new depth
+	 */
+	public void setDepth(double depth)
+	{
+		this.depth = depth;
+	}
+	
+	/**
 	 * Returns whether or not the box is full.
 	 * @return true if full, false otherwise.
 	 */
@@ -77,11 +133,19 @@ public class Box implements Comparable<Box>
 		return full;
 	}
 	
-	public double getSurfaceArea()
+	/**
+	 * Updates the value of full.
+	 * @return true if full, false otherwise.
+	 */
+	public void setFull(boolean full)
 	{
-		return 0;
+		this.full = full;
 	}
-	
+
+	/**
+	 * Returns the volume of this box.
+	 * @return The volume.
+	 */
 	public double getVolume()
 	{
 		double volume = depth * width * height;
@@ -89,7 +153,7 @@ public class Box implements Comparable<Box>
 	}
 	
 	/**
-	 * Checks if this box is equal tothe given box.
+	 * Checks if this box is equal to the given box.
 	 * @param that the box we are comparing to
 	 * @return true if equal, false otherwise.
 	 */
@@ -105,41 +169,36 @@ public class Box implements Comparable<Box>
 		}
 	}
 	
-	// Methods
-	public String toString()
-	{
-		String output = "My Box: ";
-		if(full) {
-			output += "Full box";
-		} else {
-			output += "Empty box";
-		}
-		output += ", " + height + ", " + width + ", " + depth;
-		return output;
-	}
-
 	@Override
 	public int compareTo(Box b)
 	{
 		double box1Volume = this.getVolume();
 		double box2Volume = b.getVolume();
 		
-		int result = 0;
 		if(box1Volume == box2Volume)
 		{
-			result = 0;
+			return 0;
 		}
 		else if(box1Volume < box2Volume)
 		{
-			result = -1;
+			return -1;
 		}
 		else
 		{
-			result = 1;
+			return 1;
 		}
-		return result;
-		// return 0 if volumes are equal
-		// else return -1 if box1 < box2
-		// else return 1 if box1 > box2
+	}
+	
+	@Override
+	public String toString()
+	{
+		String output = height + "\"x" + width + "\"x" + depth +"\"";
+		output += " box made of " + material;
+		if(full) {
+			output += " (full)";
+		} else {
+			output += " (empty)";
+		}
+		return output;
 	}
 }
