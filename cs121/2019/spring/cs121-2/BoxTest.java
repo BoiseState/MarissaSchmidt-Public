@@ -1,10 +1,10 @@
 import java.util.ArrayList;
-
 public class BoxTest {
 
 	public static void main(String[] args) 
 	{
 		Box box1 = new Box(10, 19, 5);
+		box1.setMaterial(Box.BoxMaterial.CARDBOARD);
 		box1.setHeight(1000);
 		double height = box1.getHeight();
 		System.out.println(box1);
@@ -31,6 +31,8 @@ public class BoxTest {
 		ArrayList<Box> allTheBoxes = truck.getBoxList();
 		allTheBoxes.clear();
 		
+		ArrayList<Box> allTheCardboardBoxes = truck.getBoxList(Box.BoxMaterial.CARDBOARD);
+		System.out.println(allTheCardboardBoxes);
 		System.out.println(truck);
 		
 //		System.out.println(box1.getVolume());
