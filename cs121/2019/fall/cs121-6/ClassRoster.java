@@ -45,6 +45,9 @@ public class ClassRoster
 		roster.add("Brandon");
 		roster.add("Barbara");
 		
+		// Determine how many students are in class
+		System.out.println("There are " + roster.size() + " students.");
+		
 		// Print using for-each loop
 		System.out.print("For-each loop: ");
 		for(String s : roster)
