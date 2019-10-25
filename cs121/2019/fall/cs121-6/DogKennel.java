@@ -1,42 +1,90 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
- * Tester class for Dogs.
- * 
+ * An aggregate class containing multiple dog objects.
  * @author marissaschmidt
  */
 public class DogKennel
 {
-	public static void main(String[] args)
+	// Instance variables
+	private String name;
+	private ArrayList<Dog> dogList;
+	
+	/**
+	 * Creates and empty dog kennel.
+	 * @param name The name of the kennel.
+	 */
+	public DogKennel(String name)
 	{
-		Dog dog1 = new Dog("Norman", 12345);
+		this.name = name;
+		this.dogList = new ArrayList<Dog>();
+	}
+	/**
+	 * Returns the name of the kennel.
+	 * @return the name.
+	 */
+	public String getName()
+	{
+		return name;
+	}
+	
+	/**
+	 * Creates and adds a Dog with the given name and id to 
+	 * this DogKennel.
+	 * @param dogName The name of the dog.
+	 * @param id The id of the dog.
+	 */
+	public void addDog(String dogName, int id)
+	{
+		// Create a Dog object from the given dogName and id
+		Dog dog = new Dog(dogName, id);
 		
-		dog1.bark();
-		dog1.setGender("male");
-		
-		Dog dog2 = new Dog("Norman", 12345);
-		
-		Dog dog3 = new Dog("Callie", 5678);
-		
-		// Use equals method to compare dog1 and dog2
-		if(dog1.equals(dog2))
+		// Add that dog to list
+		dogList.add(dog);
+	}
+	
+	/**
+	 * Returns the dog with the highest id.
+	 * @return The Dog with the highest id.
+	 */
+	public Dog getLastAddedDog()
+	{
+		if(dogList.isEmpty())
 		{
-			System.out.println("Those are the same dog!");
+			return null;
 		}
 		
+		Dog max = Collections.max(dogList);
 		
-		// Use compareTo method to determine which dog is "smaller" or "less than" the other dog.
-		if(dog1.compareTo(dog2) < 0) 
-		{
-			System.out.println(dog1 + " is smaller");
-		}
-		else if(dog1.compareTo(dog2) > 0)
-		{
-			System.out.println(dog2 + " is smaller");
-		}
-		else
-		{
-			System.out.println(dog1 + " and " + dog2 + " have the same id");
-		}
-		
+		return max;
 	}
 
+	/**
+	 * Returns a copy of the dog list.
+	 * @return A copy of the dog list.
+	 */
+	public ArrayList<Dog> getDogList()
+	{
+		ArrayList<Dog> copy = new ArrayList<Dog>();
+		for(Dog d : dogList)
+		{
+			copy.add(d);
+		}
+		return copy;
+	}
+	
+	@Override
+	public String toString()
+	{
+		// return a string representing the object
+		String output = name + " has " + dogList.size() + " dogs.\n";
+		output += "==================\n";
+		for(Dog d : dogList)
+		{
+			output += d + "\n";
+		}
+		return output;
+	}
+	
 }

@@ -73,7 +73,7 @@ public class Dog implements Comparable<Dog>
 	 */
 	public boolean equals(Dog that)
 	{
-		if(this.name.equals(that.name) && this.id == that.id)
+		if(this.name.equals(that.name) && (this.id == that.id))
 		{
 			return true;
 		}
@@ -98,5 +98,10 @@ public class Dog implements Comparable<Dog>
 		{
 			return 0;
 		}
+	}
+	
+	public String toString()
+	{
+		return name + " (" + id + ")";
 	}
 }
