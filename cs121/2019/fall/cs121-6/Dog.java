@@ -4,11 +4,21 @@
  * 
  * @author marissaschmidt
  */
-public class Dog implements Comparable<Dog>
+public class Dog implements DogInterface, Comparable<Dog>
 {
+	public enum Breed { 
+		LABRADOR, 
+		GREAT_DANE, 
+		PUG, 
+		BEAGLE,
+		MUTT,
+		TERRIER,
+		UNKNOWN
+	}
+	
 	private String name;
 	private int id;
-	private String gender;
+	private Breed breed;
 	
 	/**
 	 * Creates a dog
@@ -20,16 +30,25 @@ public class Dog implements Comparable<Dog>
 		//initialize instance variables
 		this.name = name;
 		this.id = id;
-		gender = null;
+		this.breed = Breed.UNKNOWN;
 	}
 	
 	/**
-	 * 
-	 * @param gender
+	 * Sets the breed of this dog to the given dog.
+	 * @param breed The breed.
 	 */
-	public void setGender(String gender)
+	public void setBreed(Breed breed)
 	{
-		this.gender = gender;
+		this.breed = breed;
+	}
+	
+	/**
+	 * Returns this dog's breed.
+	 * @return The breed.
+	 */
+	public Breed getBreed()
+	{
+		return breed;
 	}
 	
 	/**
@@ -102,6 +121,6 @@ public class Dog implements Comparable<Dog>
 	
 	public String toString()
 	{
-		return name + " (" + id + ")";
+		return name + "the " + breed + " (" + id + ")";
 	}
 }

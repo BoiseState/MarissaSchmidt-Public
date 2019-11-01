@@ -10,10 +10,21 @@ public class DogKennelTester
 
 	public static void main(String[] args)
 	{
+		// Test Breed enum code
+		Dog myDog = new Dog("Tigger", 122);
+		myDog.setBreed(Dog.Breed.TERRIER);
+		
+		System.out.println(myDog);
+		
+		Dog.Breed breed = myDog.getBreed();
+		
+		for(Dog.Breed b : Dog.Breed.values())
+		{
+			System.out.println(b);
+		}
+		
 		DogKennel kennel = new DogKennel("Idaho Humane Society");
 	
-		//System.out.println(kennel);
-		
 		kennel.addDog("Jackson", 456);
 		kennel.addDog("Casper", 457);
 		
@@ -28,5 +39,4 @@ public class DogKennelTester
 		
 		System.out.println(kennel);
 	}
-
 }

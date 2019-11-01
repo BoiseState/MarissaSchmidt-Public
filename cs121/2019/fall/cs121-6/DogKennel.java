@@ -12,7 +12,7 @@ public class DogKennel
 	private ArrayList<Dog> dogList;
 	
 	/**
-	 * Creates and empty dog kennel.
+	 * Creates an empty dog kennel.
 	 * @param name The name of the kennel.
 	 */
 	public DogKennel(String name)
