@@ -19,6 +19,7 @@ public class Dog implements DogInterface, Comparable<Dog>
 	private String name;
 	private int id;
 	private Breed breed;
+	private boolean adopted;
 	
 	/**
 	 * Creates a dog
@@ -31,6 +32,7 @@ public class Dog implements DogInterface, Comparable<Dog>
 		this.name = name;
 		this.id = id;
 		this.breed = Breed.UNKNOWN;
+		this.adopted = false;
 	}
 	
 	/**
@@ -49,6 +51,24 @@ public class Dog implements DogInterface, Comparable<Dog>
 	public Breed getBreed()
 	{
 		return breed;
+	}
+	
+	/**
+	 * Checks if this dog has been adopted.
+	 * @return True if adopted, false if not.
+	 */
+	public boolean isAdopted()
+	{
+		return adopted;
+	}
+	
+	/**
+	 * Sets the adoption status of this dog to the given value.
+	 * @param adopted True to set as adopted, false if not.
+	 */
+	public void setAdopted(boolean adopted)
+	{
+		this.adopted = adopted;
 	}
 	
 	/**
@@ -121,6 +141,12 @@ public class Dog implements DogInterface, Comparable<Dog>
 	
 	public String toString()
 	{
-		return name + "the " + breed + " (" + id + ")";
+		String output = name + " the " + breed + " (" + id + ")";
+		if(adopted) {
+			output += " [adopted]";
+		} else {
+			output += " [available]";
+		}
+		return output;
 	}
 }
