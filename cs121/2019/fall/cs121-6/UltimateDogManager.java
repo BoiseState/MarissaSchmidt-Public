@@ -17,7 +17,7 @@ public class UltimateDogManager extends JFrame
 		JFrame frame = new JFrame("Ultimate Dog Manager");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		UltimateDogManager panel = new UltimateDogManager();
+		DogManagerPanel panel = new DogManagerPanel();
 		frame.getContentPane().add(panel);
 		
 		frame.pack();
