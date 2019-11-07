@@ -11,8 +11,10 @@ public class DogKennelTester
 	public static void main(String[] args)
 	{
 		// Test Breed enum code
-		Dog myDog = new Dog("Tigger", 122);
-		myDog.setBreed(Dog.Breed.TERRIER);
+		Dog myDog = new Dog("Rover", 1234);
+		myDog.setBreed(Dog.Breed.GOLDEN_RETRIEVER);
+		myDog.setAdopted(true);
+		myDog.setImagePath("1234-rover.jpg");
 		
 		System.out.println(myDog);
 		

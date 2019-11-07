@@ -13,6 +13,9 @@ public class Dog implements DogInterface, Comparable<Dog>
 		BEAGLE,
 		MUTT,
 		TERRIER,
+		GOLDEN_RETRIEVER,
+		POMERANIAN,
+		ST_BERNARD,
 		UNKNOWN
 	}
 	
@@ -20,6 +23,7 @@ public class Dog implements DogInterface, Comparable<Dog>
 	private int id;
 	private Breed breed;
 	private boolean adopted;
+	private String imagePath;
 	
 	/**
 	 * Creates a dog
@@ -33,10 +37,11 @@ public class Dog implements DogInterface, Comparable<Dog>
 		this.id = id;
 		this.breed = Breed.UNKNOWN;
 		this.adopted = false;
+		this.imagePath = null;
 	}
 	
 	/**
-	 * Sets the breed of this dog to the given dog.
+	 * Sets the breed of this dog to the given breed.
 	 * @param breed The breed.
 	 */
 	public void setBreed(Breed breed)
@@ -51,6 +56,24 @@ public class Dog implements DogInterface, Comparable<Dog>
 	public Breed getBreed()
 	{
 		return breed;
+	}
+	
+	/**
+	 * Sets the name of this dog to the given name.
+	 * @param name The name.
+	 */
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	
+	/**
+	 * Returns this dog's name.
+	 * @return The name.
+	 */
+	public String getName()
+	{
+		return name;
 	}
 	
 	/**
@@ -69,6 +92,24 @@ public class Dog implements DogInterface, Comparable<Dog>
 	public void setAdopted(boolean adopted)
 	{
 		this.adopted = adopted;
+	}
+	
+	/**
+	 * Sets the image path of this dog's photo. Does not validate image exists.
+	 * @param path The path to the image.
+	 */
+	public void setImagePath(String path)
+	{
+		this.imagePath = path;
+	}
+	
+	/**
+	 * Returns the image path of this dog's photo.
+	 * @return The path to the image.
+	 */
+	public String getImagePath()
+	{
+		return imagePath;
 	}
 	
 	/**
