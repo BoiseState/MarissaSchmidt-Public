@@ -18,7 +18,7 @@ public class DogKennel
 	public DogKennel(String name)
 	{
 		this.name = name;
-		this.dogList = new ArrayList<Dog>();
+		dogList = new ArrayList<Dog>();
 	}
 	/**
 	 * Returns the name of the kennel.
@@ -40,6 +40,17 @@ public class DogKennel
 		// Create a Dog object from the given dogName and id
 		Dog dog = new Dog(dogName, id);
 		
+		// Add that dog to list
+		dogList.add(dog);
+	}
+	
+	/**
+	 * Creates and adds a Dog with the given dog to 
+	 * this DogKennel.
+	 * @param dog The dog to add.
+	 */
+	public void addDog(Dog dog)
+	{
 		// Add that dog to list
 		dogList.add(dog);
 	}

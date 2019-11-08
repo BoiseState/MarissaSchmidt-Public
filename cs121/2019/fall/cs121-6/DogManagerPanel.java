@@ -1,5 +1,9 @@
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Lesson 18-19: Activity - Dog Manager GUI
@@ -14,12 +18,29 @@ import java.awt.Dimension;
  */
 @SuppressWarnings("serial")
 public class DogManagerPanel extends JPanel
-{	
+{
+	private JLabel title;
+	private DogButton dogButton;
+	
 	/**
 	 * Creates a new DogManagerPanel.
 	 */
 	public DogManagerPanel()
 	{
-		this.setPreferredSize(new Dimension(500, 400));		
+		Dog dog = new Dog("Norman", 123);
+		dog.setBreed(Dog.Breed.BEAGLE);
+		
+		// Step 1: Instantiate components
+		title = new JLabel("Welcome to Ultimate Dog Manager");
+		dogButton = new DogButton(dog);
+		
+		// Step 2: Add components to this panel
+		add(title);
+		add(dogButton);
+		
+		this.setPreferredSize(new Dimension(300, 400));		
 	}
 }
+
+
+

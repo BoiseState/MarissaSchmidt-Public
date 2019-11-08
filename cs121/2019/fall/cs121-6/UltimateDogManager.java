@@ -9,8 +9,7 @@ import javax.swing.JFrame;
  * @version [semester]
  * @author [your name]
  */
-@SuppressWarnings("serial")
-public class UltimateDogManager extends JFrame
+public class UltimateDogManager
 {
 	public static void main(String[] args)
 	{
