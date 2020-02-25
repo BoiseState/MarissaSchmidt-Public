@@ -14,6 +14,9 @@ public class CerealAnalyzer {
 		/* TODO: 1. Create a new ArrayList of Cereal objects called cerealList. */
 		ArrayList<Cereal> cerealList = new ArrayList<Cereal>();
 		
+		
+		//cerealList.clear();
+		
 		/* TODO: 2. Create a new File object for cereal.csv and 
 		 * a new Scanner object to parse it. Catch any required 
 		 * exceptions and display a useful message to the user.
@@ -68,6 +71,9 @@ public class CerealAnalyzer {
 				 * ArrayList. Print the results.
 				 */
 				ArrayList<Cereal> lowCarb = new ArrayList<Cereal>();
+				
+				System.out.println("There are " + lowCarb.size() + " low carb cereals.");
+				
 				//Search through original cerealList
 				for(Cereal c : cerealList)
 				{
