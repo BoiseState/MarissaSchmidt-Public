@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author marissa
  *
  */
-public class ClassRoster
+public class ClassRoster2
 {
 	public static void main(String[] args)
 	{
@@ -58,15 +58,15 @@ public class ClassRoster
 		System.out.println("There are " + roster.size() + " students.");
 		
 		// Print all student names using for-each loop
-//		System.out.print("For-each loop: ");
-//		for(String student : roster)
-//		{
-//			System.out.println(student);
-//		}
-//		
-//		// Print using ArrayList toString method
-//		System.out.print("toString: ");
-//		System.out.println(roster);
+		System.out.print("For-each loop: ");
+		for(String student : roster)
+		{
+			System.out.println(student);
+		}
+		
+		// Print using ArrayList toString method
+		System.out.print("toString: ");
+		System.out.println(roster);
 		
 		// Print using for-loop
 		System.out.print("For loop: ");
@@ -75,15 +75,15 @@ public class ClassRoster
 			String student = roster.get(i);
 			System.out.println(i + ": " + student);
 		}
-//		
-//		// Print using while loop and iterator
-//		System.out.print("While loop: ");
-//		Iterator<String> it = roster.iterator();
-//		while(it.hasNext())
-//		{
-//			String student = it.next();
-//			System.out.println(student);
-//		}
+		
+		// Print using while loop and iterator
+		System.out.print("While loop: ");
+		Iterator<String> it = roster.iterator();
+		while(it.hasNext())
+		{
+			String student = it.next();
+			System.out.println(student);
+		}
 		
 		// Select a random student to answer a question
 		System.out.println("Random student: ");
