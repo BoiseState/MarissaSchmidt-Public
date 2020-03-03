@@ -11,9 +11,10 @@ public class CerealAnalyzer {
 
 	public static void main(String[] args)
 	{
-		// Create a new File object for cereal.csv and check if file exists.
+		// Create a new File object for cereal.csv 
 		File file = new File("cereal.csv");
 		
+		// Check if file exists.
 		if(file.exists() && file.isFile() && file.canRead())
 		{
 			System.out.println("I found your file: " + file);
@@ -34,22 +35,25 @@ public class CerealAnalyzer {
 					String line = scan.nextLine();
 					
 					// For each line (cereal record), use a second Scanner object to 
-					// tokenize the line using a comma (',') as the delimiter, extract values for 
-					// name, calories, protein, fat and carbs and store them to local variables.
+					// tokenize the line using a comma (',') as the delimiter,
 					Scanner lineScan = new Scanner(line);
 					lineScan.useDelimiter(","); // separate tokens on commas
 					
+					// Extract values for name, calories, protein, fat and carbs and 
+					// store them to local variables.
 					String name = lineScan.next();
 					int calories = Integer.parseInt(lineScan.next());
 					double protein = lineScan.nextDouble();
 					double fat = lineScan.nextDouble();
 					double carbs = lineScan.nextDouble();
 				
-					// Create a new Cereal object using the local variables created above
-					// and add the new Cereal object to the cerealList ArrayList. 
+					// Create a new Cereal object using the local variables created above.
 					Cereal cereal = new Cereal(name, calories, protein, fat, carbs);
 					
+					// Add the new Cereal object to the cerealList ArrayList. 
 					cerealList.add(cereal);
+					
+					lineScan.close();
 				}
 				
 				// Use a foreach loop to print out contents of the cerealList.
