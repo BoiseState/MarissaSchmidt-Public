@@ -73,6 +73,24 @@ public class CerealAnalyzer {
 				double averageProtein = totalProtein / cerealList.size();
 				System.out.println("Avg protein: " + averageProtein);
 				
+				// Find all the cereals with less than 10 carbs and store in a new
+                                // ArrayList called lowCarbCereals. Print the list of lowCarbCereals and the number
+                                // of low carb cereals.
+                                ArrayList<Cereal> lowCarbCereals = new ArrayList<Cereal>();
+                                for(Cereal c : cerealList)
+                                {
+                                        if(c.getCarbs() < 10)
+                                        {
+                                                lowCarbCereals.add(c);
+                                        }
+                                }
+
+                                System.out.println("LOW CARB CEREALS");
+                                for(Cereal c : lowCarbCereals)
+                                {
+                                        System.out.println(c);
+                                }
+				
 				scan.close();
 			}
 			catch(FileNotFoundException e)
